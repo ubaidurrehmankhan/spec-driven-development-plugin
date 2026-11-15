@@ -1,0 +1,16 @@
+# Variable NAMES only. Never put a real value in this file: it is committed. Real values live in your untracked .env or in
+# your secret store. Add a line here for every new variable the code reads (CLAUDE.md rule), with a comment saying what it is.
+
+NODE_ENV=
+PORT=
+LOG_LEVEL=
+
+# Database connection (one URL; the password is part of it, so it is a secret)
+DATABASE_URL=
+
+# Auth: token signing secret and lifetimes (the secret is a secret; generate it, never reuse one across environments)
+JWT_SECRET=
+JWT_EXPIRES_IN=
+
+# Browser origins allowed to call the API, comma separated
+CORS_ORIGINS=

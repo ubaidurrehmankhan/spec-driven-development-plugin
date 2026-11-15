@@ -1,0 +1,69 @@
+{
+  "name": "nestjs-backend",
+  "description": "NestJS REST API backend (TypeScript, TypeORM or similar ORM, Jest). Adds the NestJS and database-design skills, the NestJS batch implementer, three stack rules, hook parameters and a stack section for the profile.",
+  "commands": {
+    "INSTALL_COMMAND": "`npm ci`",
+    "BUILD_COMMAND": "`npm run build`",
+    "LINT_COMMAND": "`npm run lint`",
+    "TEST_COMMAND": "`npm test`",
+    "VERIFY_COMMAND": "`npm run lint && npm run typecheck && npm test && npm run build`"
+  },
+  "settingsAllow": [
+    "Bash(npx jest *)",
+    "Bash(npm run test*)",
+    "Bash(npx tsc --noEmit*)"
+  ],
+  "hooksConfig": {
+    "sourceFileRegex": "/src/.+\\.ts$",
+    "immutableDirs": [
+      "/src/migrations/",
+      "/src/database/migrations/",
+      "/prisma/migrations/",
+      "/specs/"
+    ],
+    "immutableFileRegex": "^(?!.*/specs/).*\\.(ts|sql)$|/specs/[^/]+/(spec-subset|context)\\.md$",
+    "immutableHint": "Never edit a shipped migration or a frozen spec; add a new one instead (a changed spec starts again at /analyze-spec).",
+    "format": {
+      "pkg": "prettier",
+      "args": [
+        "--write",
+        "{file}"
+      ]
+    },
+    "stopGate": {
+      "checks": [
+        {
+          "label": "lint",
+          "pkg": "eslint",
+          "args": [
+            "--cache",
+            "--cache-location",
+            "{tmp}/.eslintcache-claude",
+            "{files}"
+          ]
+        },
+        {
+          "label": "related tests",
+          "pkg": "jest",
+          "args": [
+            "--findRelatedTests",
+            "{files}",
+            "--passWithNoTests"
+          ]
+        },
+        {
+          "label": "typecheck",
+          "pkg": "typescript",
+          "bin": "tsc",
+          "args": [
+            "--noEmit"
+          ]
+        }
+      ]
+    }
+  },
+  "profileFragment": "profile-fragment.md",
+  "skillMapRows": "skill-map-rows.md",
+  "filesDir": "files",
+  "upstreamManifest": "upstream.sha256"
+}

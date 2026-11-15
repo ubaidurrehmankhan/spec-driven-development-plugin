@@ -1,0 +1,7 @@
+{
+  "name": "generic",
+  "description": "No stack assumptions. You get the workflow, hooks, rules for secrets and safety, and an empty stack section in the profile to fill in. Add your own skills and rules.",
+  "commands": {},
+  "settingsAllow": [],
+  "hooksConfig": {}
+}

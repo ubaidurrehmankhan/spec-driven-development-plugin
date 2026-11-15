@@ -1,0 +1,133 @@
+{
+  "_about": "Single source for the disallowedTools line of every agent that has no tools allowlist (agents that load skills dynamically cannot have one: listing Skill in tools disables skill loading). Edit this file, then run: node scripts/claude/agent-tools.mjs apply. validate-workflow fails when an agent is out of step. Server entries are mcp__<server> (documented form: the whole server is withheld). Connector names are environment-specific: when a connector is added to the team's account, add its server here.",
+  "outward": [
+    "mcp__claude_ai_Slack",
+    "mcp__claude_ai_Gmail",
+    "mcp__claude_ai_Google_Drive",
+    "mcp__claude_ai_Google_Docs",
+    "mcp__claude_ai_Google_Sheets",
+    "mcp__claude_ai_Google_Slides",
+    "mcp__claude_ai_Google_Calendar",
+    "mcp__claude_ai_Microsoft_365",
+    "mcp__claude_ai_Notion",
+    "mcp__claude_ai_Linear",
+    "mcp__claude_ai_Asana",
+    "mcp__claude_ai_monday_com",
+    "mcp__claude_ai_HubSpot",
+    "mcp__claude_ai_Intercom",
+    "mcp__claude_ai_Box",
+    "mcp__claude_ai_Intuit_QuickBooks",
+    "mcp__claude_ai_Make",
+    "mcp__claude_ai_Ketryx",
+    "mcp__claude_ai_Checklist_for_Jira",
+    "mcp__claude_ai_Claude_Docs",
+    "mcp__claude_ai_Claude_Data",
+    "mcp__claude_ai_Canva",
+    "mcp__claude_ai_Figma",
+    "mcp__claude_ai_Miro",
+    "mcp__claude_ai_Sentry",
+    "mcp__claude_ai_Postman",
+    "mcp__claude_ai_Apollo_io",
+    "mcp__claude_ai_Fireflies",
+    "mcp__claude_ai_Inkbox",
+    "mcp__claude_ai_Jam",
+    "mcp__claude_ai_JumpCloud_Admin_MCP",
+    "mcp__claude_ai_VenDians_MCP_Prod_Beta",
+    "mcp__plugin_sentry_sentry",
+    "mcp__plugin_github_github",
+    "mcp__plugin_playwright_playwright",
+    "mcp__plugin_chrome-devtools-mcp_chrome-devtools"
+  ],
+  "profiles": {
+    "implementer": {
+      "about": "Batch implementers need no tracker at all: every Atlassian server is withheld. Context7 stays available.",
+      "extra": [
+        "mcp__claude_ai_Atlassian_MCP",
+        "mcp__claude_ai_Atlassian_Rovo",
+        "mcp__claude_ai_Atlassian_Rovo_2"
+      ]
+    },
+    "jira": {
+      "about": "Jira agents may READ tickets and Confluence; every write tool of the three Atlassian connectors is withheld, so a comment or transition can only be posted by the orchestrating session after the developer approves.",
+      "extra": [
+        "mcp__claude_ai_Atlassian_MCP__addGraphContext",
+        "mcp__claude_ai_Atlassian_MCP__addOrEditJiraIssueComment",
+        "mcp__claude_ai_Atlassian_MCP__createConfluenceContent",
+        "mcp__claude_ai_Atlassian_MCP__createJiraIssue",
+        "mcp__claude_ai_Atlassian_MCP__editJiraIssue",
+        "mcp__claude_ai_Atlassian_MCP__executeDestructive",
+        "mcp__claude_ai_Atlassian_MCP__executeWrite",
+        "mcp__claude_ai_Atlassian_MCP__transitionJiraIssue",
+        "mcp__claude_ai_Atlassian_MCP__updateConfluenceContent",
+        "mcp__claude_ai_Atlassian_Rovo__addCommentToJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo__addTeamworkGraphContext",
+        "mcp__claude_ai_Atlassian_Rovo__addWorklogToJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo__createCompassComponent",
+        "mcp__claude_ai_Atlassian_Rovo__createCompassComponentRelationship",
+        "mcp__claude_ai_Atlassian_Rovo__createCompassCustomFieldDefinition",
+        "mcp__claude_ai_Atlassian_Rovo__createConfluenceFooterComment",
+        "mcp__claude_ai_Atlassian_Rovo__createConfluenceInlineComment",
+        "mcp__claude_ai_Atlassian_Rovo__createConfluencePage",
+        "mcp__claude_ai_Atlassian_Rovo__createIssueLink",
+        "mcp__claude_ai_Atlassian_Rovo__createJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo__editJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo__transitionJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo__updateConfluencePage",
+        "mcp__claude_ai_Atlassian_Rovo_2__addCommentToJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo_2__addTeamworkGraphContext",
+        "mcp__claude_ai_Atlassian_Rovo_2__addWorklogToJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo_2__createCompassComponent",
+        "mcp__claude_ai_Atlassian_Rovo_2__createCompassComponentRelationship",
+        "mcp__claude_ai_Atlassian_Rovo_2__createCompassCustomFieldDefinition",
+        "mcp__claude_ai_Atlassian_Rovo_2__createConfluenceFooterComment",
+        "mcp__claude_ai_Atlassian_Rovo_2__createConfluenceInlineComment",
+        "mcp__claude_ai_Atlassian_Rovo_2__createConfluencePage",
+        "mcp__claude_ai_Atlassian_Rovo_2__createIssueLink",
+        "mcp__claude_ai_Atlassian_Rovo_2__createJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo_2__editJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo_2__transitionJiraIssue",
+        "mcp__claude_ai_Atlassian_Rovo_2__updateConfluencePage"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "path": ".claude/agents/jira-bug-fixer.md",
+      "profile": "jira"
+    },
+    {
+      "path": ".claude/agents/jira-bug-triager.md",
+      "profile": "jira"
+    },
+    {
+      "path": ".claude/agents/nestjs-batch-implementer.md",
+      "profile": "implementer",
+      "optional": true
+    },
+    {
+      "path": ".claude/agents/react-batch-implementer.md",
+      "profile": "implementer",
+      "optional": true
+    },
+    {
+      "path": "presets/nestjs-backend/files/.claude/agents/nestjs-batch-implementer.md",
+      "profile": "implementer",
+      "optional": true
+    },
+    {
+      "path": "presets/react-nextjs/files/.claude/agents/react-batch-implementer.md",
+      "profile": "implementer",
+      "optional": true
+    },
+    {
+      "path": ".claude/spec-driven/optional/agents/react-batch-implementer.md",
+      "profile": "implementer",
+      "optional": true
+    },
+    {
+      "path": ".claude/spec-driven/optional/agents/fastapi-batch-implementer.md",
+      "profile": "implementer",
+      "optional": true
+    }
+  ]
+}

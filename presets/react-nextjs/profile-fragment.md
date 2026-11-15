@@ -1,0 +1,5 @@
+- **Stack (verify):** React, TypeScript strict, TanStack Query for data fetching. State whether this project uses Next.js App Router (use the `nextjs-frontend` skill) or a plain React setup like Vite (use the `react-frontend` skill) — most projects need only one, but both are installed.
+- **API source of truth:** this project's backend publishes HTTP contracts (for example `docs/api-contracts/*.contract.md`). Read the paired backend repo's contract before building against an endpoint — never guess a response shape.
+- **Data layer:** state the query-key convention and where the API client lives (for example one shared Axios client, one file per entity for query/mutation hooks).
+- **Components:** state the component library in use (if any) and where shared components live. A batch never creates a new component for something an existing one already covers.
+- **Testing:** state the test runner (Vitest or Jest) and whether MSW or a similar tool mocks the network layer.

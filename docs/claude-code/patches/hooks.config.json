@@ -1,0 +1,38 @@
+{
+  "sourceFileRegex": null,
+  "immutableDirs": [
+    "/specs/"
+  ],
+  "immutableFileRegex": "^(?!.*/specs/).*\\.(ts|js|sql)$|/specs/[^/]+/(spec-subset|context)\\.md$",
+  "immutableHint": "Never edit a shipped file or a frozen spec in this folder; add a new one instead (a changed spec starts again at /analyze-spec).",
+  "policyFiles": [
+    {
+      "patterns": [
+        "/\\.claude/settings(\\.[\\w-]+)?\\.json$",
+        "/\\.claude/hooks/",
+        "/\\.claude/hooks\\.config\\.json$"
+      ],
+      "message": "Blocked: {file} holds the guardrails. Describe the change you need and let the developer make it."
+    }
+  ],
+  "askFiles": [
+    {
+      "patterns": [
+        "/CLAUDE\\.md$",
+        "/\\.claude/(agents|commands|rules|skills)/",
+        "/\\.github/workflows/",
+        "/scripts/claude/"
+      ],
+      "message": "Confirm: {file} changes how Claude behaves or what CI and the guardrail tooling run."
+    }
+  ],
+  "format": null,
+  "stopGate": {
+    "checks": []
+  },
+  "askBeforeInstall": true,
+  "owaspGuard": {
+    "enabled": true,
+    "skipPathRegex": "(\\.(spec|test)\\.|/__tests__/|/tests?/|/e2e/|\\.d\\.ts$)"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "name": "react-nextjs",
+  "description": "React or Next.js frontend (TypeScript, TanStack Query). Adds the react-frontend and nextjs-frontend skills, the react batch implementer, two stack rules, hook parameters, and a stack section for the profile. Use nextjs-frontend's skill for an App Router project; react-frontend otherwise. Both are included so a project only using one isn't missing the other if it changes later.",
+  "commands": {
+    "INSTALL_COMMAND": "`npm ci`",
+    "BUILD_COMMAND": "`npm run build`",
+    "LINT_COMMAND": "`npm run lint`",
+    "TEST_COMMAND": "`npm test`",
+    "VERIFY_COMMAND": "`npm run lint && npm run typecheck && npm test && npm run build`"
+  },
+  "settingsAllow": [
+    "Bash(npx vitest *)",
+    "Bash(npx jest *)",
+    "Bash(npm run test*)",
+    "Bash(npx tsc --noEmit*)"
+  ],
+  "hooksConfig": {
+    "sourceFileRegex": "/(src|app)/.+\\.(ts|tsx)$",
+    "immutableDirs": [
+      "/specs/"
+    ],
+    "immutableFileRegex": "/specs/[^/]+/(spec-subset|context)\\.md$",
+    "immutableHint": "Never edit a frozen spec; a changed spec starts again at /analyze-spec.",
+    "format": {
+      "pkg": "prettier",
+      "args": [
+        "--write",
+        "{file}"
+      ]
+    },
+    "stopGate": {
+      "checks": [
+        {
+          "label": "lint",
+          "pkg": "eslint",
+          "args": [
+            "--cache",
+            "--cache-location",
+            "{tmp}/.eslintcache-claude",
+            "{files}"
+          ]
+        },
+        {
+          "label": "related tests",
+          "pkg": "vitest",
+          "args": [
+            "related",
+            "{files}",
+            "--run"
+          ]
+        },
+        {
+          "label": "typecheck",
+          "pkg": "typescript",
+          "bin": "tsc",
+          "args": [
+            "--noEmit"
+          ]
+        }
+      ]
+    }
+  },
+  "profileFragment": "profile-fragment.md",
+  "skillMapRows": "skill-map-rows.md",
+  "filesDir": "files",
+  "upstreamManifest": "upstream.sha256"
+}

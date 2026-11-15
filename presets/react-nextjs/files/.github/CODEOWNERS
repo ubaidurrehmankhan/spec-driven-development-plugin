@@ -1,0 +1,11 @@
+# Who must review changes to the guardrails and to CI. These files decide what Claude and the pipeline are allowed to do,
+# so a change to them should never merge on the author's say-so alone.
+#
+# TO DO BEFORE THIS HAS ANY EFFECT:
+#   1. Replace @your-org/your-team below with the real GitHub team (or users) that owns the guardrails.
+#   2. In the repository's branch protection (or ruleset) for main and dev, turn on "Require review from Code Owners".
+/.claude/            @your-org/your-team
+/.github/            @your-org/your-team
+/scripts/claude/     @your-org/your-team
+/CLAUDE.md           @your-org/your-team
+/.husky/             @your-org/your-team

@@ -1,0 +1,8 @@
+# Personal notes for Claude (copy to CLAUDE.local.md; it is gitignored)
+
+Only things that are true for you on your machine. Never put passwords, tokens or keys here: keep them in environment variables and refer to them by name.
+
+- Local base URL: http://localhost:3000
+- Test accounts: names only, for example "qa-admin" (the password lives in $QA_ADMIN_PASSWORD)
+- Shell: PowerShell on Windows; use `node` for scripts instead of bash one-liners
+- I prefer short answers and a plan before multi-file changes

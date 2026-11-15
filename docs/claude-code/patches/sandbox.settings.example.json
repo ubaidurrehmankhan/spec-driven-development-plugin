@@ -1,0 +1,14 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": false,
+    "autoAllowBashIfSandboxed": false,
+    "excludedCommands": ["docker *"],
+    "filesystem": {
+      "denyRead": ["~/.aws/credentials", "~/.ssh", "~/.config/gcloud", "~/.kube"]
+    },
+    "network": {
+      "allowedDomains": ["github.com", "*.github.com", "registry.npmjs.org", "*.npmjs.org"]
+    }
+  }
+}

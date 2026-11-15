@@ -1,0 +1,11 @@
+# Variable NAMES only. Never put a real value in this file: it is committed. Real values live in your untracked .env.local or in
+# your secret store. Add a line here for every new variable the code reads (CLAUDE.md rule), with a comment saying what it is.
+
+NODE_ENV=
+
+# Public: baked into the browser bundle, so NEVER put a secret, key or token in a NEXT_PUBLIC_ variable.
+NEXT_PUBLIC_API_BASE_URL=
+
+# Server only
+API_BASE_URL=
+SESSION_SECRET=
